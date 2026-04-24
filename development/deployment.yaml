@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-first-app
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-first-app
+  template:
+    metadata:
+      labels:
+        app: my-first-app
+    spec:
+      containers:
+      - name: main
+        image: nginx:1.25 # Usando nginx como exemplo
+        ports:
+        - containerPort: 80
