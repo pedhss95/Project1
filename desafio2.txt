@@ -1,0 +1,42 @@
+1. Instalação do Docker: sudo systemctl status docker | head -n 10 
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/usr/lib/systemd/system/docker.service; disabled; preset: disabled)
+    Drop-In: /usr/lib/systemd/system/service.d
+             └─10-timeout-abort.conf
+     Active: active (running) since Wed 2026-03-18 19:31:07 -03; 1h 35min ago
+ Invocation: 4852c8a9027546d5bde34d3e32c63b16
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 6153 (dockerd)
+      Tasks: 58
+
+2. Criação de Cluster Kubernetes Local: minikube status 
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+3. Instalação do kubectl: kubectl get nodes | kubectl cluster-info
+NAME       STATUS   ROLES           AGE   VERSION
+minikube   Ready    control-plane   22m   v1.35.1
+Kubernetes control plane is running at https://192.168.49.2:8443
+CoreDNS is running at https://192.168.49.2:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+4. Instalação do kubectx e kubens: kubectx
+minikube
+
+kubectx
+default
+kube-node-lease
+kube-public
+kube-system
+kubernetes-dashboard
+meu-primeiro-namespace
+
+5. Criação de Namespace:
+CURRENT   NAME       CLUSTER    AUTHINFO   NAMESPACE
+*         minikube   minikube   minikube   meu-primeiro-namespace
